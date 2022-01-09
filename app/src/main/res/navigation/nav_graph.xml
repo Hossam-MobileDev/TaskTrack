@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/trackFragment2">
+
+
+    <action android:id="@+id/action_global_trackingFragment"
+        app:destination="@id/trackFragment2"
+        app:launchSingleTop="true"/>
+    <fragment
+        android:id="@+id/trackFragment2"
+        android:name="com.example.tasktrack.ui.fragments.TrackFragment"
+        android:label="TrackFragment" >
+        <action
+            android:id="@+id/action_trackFragment2_to_historyFragment"
+            app:destination="@id/historyFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"></action>
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.tasktrack.ui.fragments.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_historyFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.tasktrack.ui.fragments.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument android:name="track"
+            app:argType="com.example.tasktrack.database.Track"></argument>
+    </fragment>
+</navigation>
